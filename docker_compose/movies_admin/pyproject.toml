@@ -15,6 +15,7 @@ flake8 = "^6.1.0"
 autopep8 = "^2.0.4"
 flake8-isort = "^6.1.0"
 django-cors-headers = "^4.2.0"
+gunicorn = "^21.2.0"
 
 
 [build-system]

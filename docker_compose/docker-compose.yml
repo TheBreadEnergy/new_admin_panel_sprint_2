@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  movies_admin:
+    build: movies_admin
+    container_name: movies_admin
+    env_file:
+      - movies_admin/.env
+    ports:
+      - "8000:8000"
+    command: poetry run python -m gunicorn config.wsgi:application --bind 0.0.0.0:8000
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres
+    image: postgres:13.0
+    env_file:
+      - movies_admin/.db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+  nginx:
+    container_name: nginx
+    build: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - movies_admin
+
+volumes:
+  postgres_volume:

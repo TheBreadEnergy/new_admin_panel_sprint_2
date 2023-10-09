@@ -4,12 +4,14 @@ RUN mkdir /movies_admin
 
 WORKDIR /movies_admin
 
-RUN pip install poetry
-
-RUN poetry config virtualenvs.in-project true
-
 COPY pyproject.toml .
 
-RUN poetry install
+RUN pip install poetry && \
+    poetry config virtualenvs.in-project true && \
+    poetry install
 
 COPY . .
+
+RUN poetry run python manage.py collectstatic
+
+EXPOSE 8000
