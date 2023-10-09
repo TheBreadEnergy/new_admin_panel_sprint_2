@@ -1,6 +1,7 @@
 from django.contrib.postgres.aggregates import ArrayAgg
-from django.http import JsonResponse
 from django.db.models import Q
+from django.http import JsonResponse
+
 from movies.models import Filmwork
 
 

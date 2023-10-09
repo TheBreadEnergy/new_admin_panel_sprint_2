@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Genre, Filmwork, GenreFilmwork, Person, PersonFilmwork
+
+from .models import Filmwork, Genre, GenreFilmwork, Person, PersonFilmwork
 
 
 @admin.register(Genre)
