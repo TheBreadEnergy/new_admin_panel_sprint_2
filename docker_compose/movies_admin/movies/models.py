@@ -47,10 +47,6 @@ class GenreFilmwork(UUIDMixin):
         constraints = [
             models.UniqueConstraint(fields=['film_work', 'genre'], name='filmwork_genre_unique')
         ]
-        indexes = [
-            models.Index(fields=['film_work'], name='film_work_idx'),
-            models.Index(fields=['genre'], name='genre_idx')
-        ]
 
     def __str__(self):
         return self.genre.name
@@ -95,9 +91,7 @@ class PersonFilmwork(UUIDMixin):
             models.UniqueConstraint(fields=['film_work', 'person', 'role'], name='film_work_person_role_unique')
         ]
         indexes = [
-            models.Index(fields=['person'], name='person_idx'),
-            models.Index(fields=['film_work'], name='filmwork_idx'),
-            models.Index(fields=['role'], name='role_idx'),
+            models.Index(fields=['role'], name='role_idx')
         ]
 
     def __str__(self):

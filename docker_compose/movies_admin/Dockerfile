@@ -1,7 +1,5 @@
 FROM python:3.11.5
 
-RUN mkdir /movies_admin
-
 WORKDIR /movies_admin
 
 COPY pyproject.toml .
