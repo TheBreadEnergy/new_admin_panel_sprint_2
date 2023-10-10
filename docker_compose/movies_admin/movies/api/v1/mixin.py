@@ -12,9 +12,6 @@ class MoviesApiMixin:
 
     def get_queryset(self):
         return super().get_queryset(
-        ).prefetch_related(
-            'genres',
-            'persons',
         ).values(
             'id',
             'title',
